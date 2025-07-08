@@ -71,7 +71,7 @@ The application is designed to work on:
 ## 📦 Project Management
 
 Task tracking and planning are managed via  
-[GitHub Projects](add link later)
+[GitHub Projects](https://github.com/users/Namane00426/projects/2)
 
 ---
 

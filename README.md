@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Reddit Viewer App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web application for browsing posts from various Reddit subreddits.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📐 Wireframes
 
-### `npm start`
+*Insert wireframe images later.*
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 Technologies Used
 
-### `npm test`
+- React
+- Redux (planned)
+- JavaScript (ES6+)
+- CSS (or Tailwind CSS if used)
+- Reddit API
+- Git & GitHub
+- GitHub Projects (for task planning)
+- Jest / React Testing Library (for unit tests)
+- Cypress or Playwright (for E2E tests – planned)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 🔍 Search and display posts from any subreddit
+- ⌨️ Input field for subreddit name with Enter key support
+- ⏳ Display a loading message while fetching posts
+- ⚠️ Show an error message if the subreddit does not exist or has no posts
+- 🌐 Clickable links to open Reddit posts in a new tab
+- 📱 Responsive design for both desktop and mobile devices (planned)
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🧪 Testing (Planned)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ ] Unit testing with Jest & RTL
+- [ ] End-to-end testing with Cypress or Playwright
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🚧 Future Work
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Integrate Redux for better state management
+- Add filtering by categories
+- Implement post detail view (modal or new route)
+- Improve animations and UI transitions
+- Optimize performance and accessibility (90+ Lighthouse score)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🌍 Deployment
 
-## Learn More
+The app will be deployed to a public URL  
+**(e.g., Netlify, Vercel, GitHub Pages)**  
+🔗 [Deployed App Link](https://your-app-url.com)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📱 Responsive Design
 
-### Code Splitting
+The application is designed to work on:
+- Desktop
+- Tablet
+- Mobile devices
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📦 Project Management
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Task tracking and planning are managed via  
+[GitHub Projects](https://github.com/users/Namane00426/projects/2)
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📝 License
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License.

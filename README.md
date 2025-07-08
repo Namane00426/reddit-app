@@ -24,14 +24,14 @@ A web application for browsing posts from various Reddit subreddits.
 
 ---
 
-## ✨ Features
+## Features
 
-- Search for posts by subreddit name
-- Display a list of posts with titles and links
-- Loading and error states for a better user experience
-- Responsive design for desktop and mobile devices
-- Initial subreddit content is loaded on first visit
-
+- 🔍 Search and display posts from any subreddit
+- ⌨️ Input field for subreddit name with Enter key support
+- ⏳ Display a loading message while fetching posts
+- ⚠️ Show an error message if the subreddit does not exist or has no posts
+- 🌐 Clickable links to open Reddit posts in a new tab
+- 📱 Responsive design for both desktop and mobile devices (planned)
 ---
 
 ## 🧪 Testing (Planned)

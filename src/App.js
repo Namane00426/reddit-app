@@ -11,14 +11,23 @@ function App() {
   const error = useSelector((state) => state.posts.error)
 
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchHistory, setSearchHistory] = useState(() => {
+    const stored = localStorage.getItem('searchHistory');
+    return stored ? JSON.parse(stored) : [];
+  })
 
   useEffect(() => {
     dispatch(fetchPosts(subreddit));
   }, [dispatch, subreddit]);
 
   const handleSearch = () => {
-    if (searchTerm.trim()) {
-      dispatch(setSubreddit(searchTerm.trim()));
+    const trimmed = searchTerm.trim();
+    if (trimmed) {
+      dispatch(setSubreddit(trimmed));
+
+      const updatedHistory = [trimmed, ...searchHistory.filter((term) => term !== trimmed)].slice(0,5);
+      setSearchHistory(updatedHistory);
+      localStorage.setItem('searchHistory', JSON.stringify(updatedHistory));
     }
   };
 
@@ -39,14 +48,47 @@ function App() {
         onKeyDown={handleKeyDown}
       />
       <button onClick={handleSearch}>Search</button>
- {error && <p style={{ color: 'red' }}>{error}</p>}
-{!loading && posts.length === 0 && !error && <p>No posts found.</p>}
+
+      <div
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: '8px',
+    margin: '12px 0',
+  }}
+>
+  <span style={{ fontWeight: 'bold' }}>🕘 Recent Searches:</span>
+    {searchHistory.map((term, idx) => (
+      <button
+        key={idx}
+        style={{
+          display: 'inline-block',
+          padding: '4px 8px',
+          border: '1px solid #ccc',
+          borderRadius: '4px',
+          background: '#f9f9f9',
+          fontSize: '0.9rem',
+          cursor: 'pointer',
+        }}
+        onClick={() => {
+          setSearchTerm(term);
+          dispatch(setSubreddit(term));
+        }}
+      >
+        {term}
+      </button>
+    ))}
+</div>
+
+
       {loading ? (
         <p>🔄 Loading posts...</p>
-      ) : posts.length === 0 ? (
-        <p>⚠️ Posts not found</p>
+      ) : error ? (
+        <p style={{color: 'red'}}>{error}</p>
+      ) : posts.length === 0 ?(
+        <p>⚠️ No posts found.</p>
       ) : (
-        
         <ul>
           {posts.map((post) => (
             <li key={post.id}>

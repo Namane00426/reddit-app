@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPosts, setSubreddit } from './features/posts/postsSlice';
+import PostItem from './components/PostItem';
 
 function App() {
   const dispatch = useDispatch();
@@ -91,16 +92,7 @@ function App() {
       ) : (
         <ul>
           {posts.map((post) => (
-            <li key={post.id}>
-              <a
-                href={`https://www.reddit.com${post.permalink}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {post.title}
-              
-              </a>
-            </li>
+           <PostItem key={post.id} post={post} />
           ))}
         </ul>
       )}

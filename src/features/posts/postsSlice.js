@@ -2,9 +2,9 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 
 export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
-  async(subreddit, thunkAPI) => {
+  async({subreddit, sort}, thunkAPI) => {
     try{
-       const response = await fetch(`https://www.reddit.com/r/${subreddit}.json`);
+       const response = await fetch(`https://www.reddit.com/r/${subreddit}/${sort}.json`);
        
        if(!response.ok){
         throw new Error (`Subreddit "${subreddit} not found`);
@@ -26,11 +26,15 @@ const postsSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    subreddit: 'reactjs'
+    subreddit: 'reactjs',
+    sort: 'hot'
   },
   reducers: {
     setSubreddit(state, action){
       state.subreddit = action.payload;
+    },
+    setSort: (state, action) => {
+      state.sort = action.payload;
     }
   },
  extraReducers: (builder) => {
@@ -50,5 +54,5 @@ const postsSlice = createSlice({
 }
 })
 
-export const {setSubreddit} = postsSlice.actions;
+export const {setSubreddit, setSort} = postsSlice.actions;
 export default postsSlice.reducer;

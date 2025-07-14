@@ -1,18 +1,33 @@
 import React from  'react';
+import styles from './PostItem.module.css';
 
 function PostItem({post}) {
+  const isValidThumbnail =
+    post.thumbnail && 
+    post.thumbnail !== 'self' && 
+    post.thumbnail !== 'default' &&
+    post.thumbnail !=='nsfw';
+
   return (
-    <li style={{marginBottom: '1rem', listStyle:'none', padding:'1rem', background:'rgba(131, 212, 170, 0.4)',borderRadius:'8px', maxWidth:'80vw'}} >
+    <li className={styles.postItem} >
+      {isValidThumbnail && (
+      <img
+      src={post.thumbnail}
+      alt=''
+      className={styles.thumbnail}/>
+  )}
+    <div className={styles.textContent}>
       <a
       href={`https://www.reddit.com${post.permalink}`}
       target="_blank"
-      rel='noopner noreferrer'
-      style={{fontWeight: 'bold', textDecolation: 'none'}}
+      rel='noopener noreferrer'
+      className={styles.linkTitle}
       >
         {post.title}
       </a>
-      <div style={{fontSize: '0.8rem', color: 'gray'}}>
+      <div className={styles.meta}>
         🧑 by {post.author} | 👍 {post.ups} upvotes
+      </div>
       </div>
     </li>
     

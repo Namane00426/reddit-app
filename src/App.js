@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchPosts, setSubreddit, setSort } from './features/posts/postsSlice';
 import PostItem from './components/PostItem';
 import styles from './App.css'
+import PostModal from './components/PostModal';
 
 function App() {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function App() {
     const stored = localStorage.getItem('searchHistory');
     return stored ? JSON.parse(stored) : [];
   })
+  const [selectedPost, setSelectedPost] = useState(null);
 
   useEffect(() => {
     dispatch(fetchPosts({subreddit,sort}));
@@ -69,20 +71,20 @@ function App() {
       </button>
     ))}
 </div>
-<div style={{margin:'12px 0'}}>
-  <label htmlFor="sort-select"
- style={{marginRight:'8px'}}>Sort by:</label>
- <select
- id='sort-select'
- value={sort}
- onChange={(e) => dispatch(setSort(e.target.value))}
- style={styles.sortButton}>
-  <option value='hot'>🔥 Hot</option>
-  <option value='new'>🆕 New</option>
-  <option value='top'>🏆 Top</option>  
-  <option value='rising'>📈 Rising</option>
- </select>
-</div>
+  <div style={{margin:'12px 0'}}>
+      <label htmlFor="sort-select"
+      style={{marginRight:'8px'}}>Sort by:</label>
+      <select
+      id='sort-select'
+      value={sort}
+      onChange={(e) => dispatch(setSort(e.target.value))}
+      style={styles.sortButton}>
+      <option value='hot'>🔥 Hot</option>
+      <option value='new'>🆕 New</option>
+      <option value='top'>🏆 Top</option>  
+      <option value='rising'>📈 Rising</option>
+    </select>
+  </div>
 
       {loading ? (
         <p>🔄 Loading posts...</p>
@@ -94,12 +96,17 @@ function App() {
         
         <ul>
           {posts.map((post) => (
-           <PostItem key={post.id} post={post} />
+           <PostItem key={post.id} post={post} onClick={()=>setSelectedPost(post)} />
           ))}
         </ul>
       )}
-    </div>
-            
+
+      {/*Modal display*/}
+    {selectedPost && (
+      <PostModal post={selectedPost} onClose={() => setSelectedPost(null)} />
+    )}
+      
+     </div>    
   );
 }
 

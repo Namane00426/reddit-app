@@ -1,7 +1,7 @@
 import React from  'react';
 import styles from './PostItem.module.css';
 
-function PostItem({post}) {
+function PostItem({post, onClick}) {
   const isValidThumbnail =
     post.thumbnail && 
     post.thumbnail !== 'self' && 
@@ -9,7 +9,9 @@ function PostItem({post}) {
     post.thumbnail !=='nsfw';
 
   return (
-    <li className={styles.postItem} >
+    <li 
+      onClick={onClick}
+      className={styles.postItem} >
       {isValidThumbnail && (
       <img
       src={post.thumbnail}

@@ -1,16 +1,26 @@
 import React from  'react';
 import styles from './PostItem.module.css';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-function PostItem({post, onClick}) {
+function PostItem({post}) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const isValidThumbnail =
     post.thumbnail && 
     post.thumbnail !== 'self' && 
     post.thumbnail !== 'default' &&
     post.thumbnail !=='nsfw';
+  
+  const handleClick= () => {
+    navigate(`/post/${post.id}`, {
+      state: {background: location, post},
+    });
+  };
 
   return (
     <li 
-      onClick={onClick}
+      onClick={handleClick}
       className={styles.postItem} >
       {isValidThumbnail && (
       <img
@@ -24,6 +34,7 @@ function PostItem({post, onClick}) {
       target="_blank"
       rel='noopener noreferrer'
       className={styles.linkTitle}
+      onClick={(e) => e.stopPropagation}
       >
         {post.title}
       </a>

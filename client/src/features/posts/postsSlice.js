@@ -4,13 +4,13 @@ export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
   async({subreddit, sort}, thunkAPI) => {
     try{
-       const response = await fetch(`https://www.reddit.com/r/${subreddit}/${sort}.json`);
+       const response = await fetch(`http://localhost:4000/api/posts/${subreddit}?sort=${sort}`);
        
        if(!response.ok){
-        throw new Error (`Subreddit "${subreddit} not found`);
+        throw new Error (`Subreddit "${subreddit}" not found`);
        }
      const data = await response.json();
-     if(!data?.data?.children || data.data.children === 0){
+     if(!data?.data?.children || data.data.children.length === 0){
       throw new Error(`No posts found for subreddit "${subreddit}"`);
      }
     return data.data.children.map(child => child.data);
@@ -26,7 +26,7 @@ const postsSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    subreddit: 'reactjs',
+    subreddit: 'javascript',
     sort: 'hot'
   },
   reducers: {
@@ -49,7 +49,7 @@ const postsSlice = createSlice({
     })
     .addCase(fetchPosts.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.error.message || "Failed to fetch posts.";
+      state.error = action.payload || action.error.message || "Failed to fetch posts.";
     });
 }
 })

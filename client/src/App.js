@@ -25,6 +25,7 @@ function App() {
   
 
   useEffect(() => {
+    console.log('Fetching:', subreddit, sort);
     dispatch(fetchPosts({subreddit,sort}));
   }, [dispatch, subreddit, sort]);
 
@@ -110,8 +111,8 @@ function App() {
           key={post.id} 
           post={post} 
           onClick={()=>
-            navigate(`/post/${post.id}`, { state:{background: location,post}})
-          } 
+            navigate(`/post/${post.id}`,  { state: { background: location, post } })
+                      }
          />
         ))}
         </ul>
@@ -123,7 +124,7 @@ function App() {
     {/*Modal Route*/}
     <Routes>
       <Route
-        path="/post/postId"
+        path="/post/:postId"
         element={
           <PostModal
           post={location.state?.post}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import {Routes, Route, useNavigate, useLocation} from 'react-router-dom'
 import { fetchPosts, setSubreddit, setSort } from './features/posts/postsSlice';
 import PostItem from './components/PostItem';
 import styles from './App.css'
@@ -7,6 +8,8 @@ import PostModal from './components/PostModal';
 
 function App() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const posts = useSelector((state) => state.posts.posts);
   const loading = useSelector((state) => state.posts.loading);
@@ -19,7 +22,7 @@ function App() {
     const stored = localStorage.getItem('searchHistory');
     return stored ? JSON.parse(stored) : [];
   })
-  const [selectedPost, setSelectedPost] = useState(null);
+  
 
   useEffect(() => {
     dispatch(fetchPosts({subreddit,sort}));
@@ -42,50 +45,58 @@ function App() {
     }
   };
 
+  const background = location.state?.background;
+
   return (
-    <div>
-      <h1>/r/ Post list of: {subreddit}</h1>
+    <>
+    {/* Main routing */}
+    <Routes location={background || location}>
+      <Route
+        path="/"
+        element={
+              <div>
+          <h1>/r/ Post list of: {subreddit}</h1>
 
-      <input
-        value={searchTerm}
-        placeholder="Input Subreddit (ex. javascript)"
-        onChange={(e) => setSearchTerm(e.target.value)}
-        onKeyDown={handleKeyDown}
-      />
-      <button onClick={handleSearch}>Search</button>
+          <input
+            value={searchTerm}
+            placeholder="Input Subreddit (ex. javascript)"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleKeyDown}
+          />
+          <button onClick={handleSearch}>Search</button>
 
-      <div
-       style={styles.searchBoxes}
-      >
-  <span style={{ fontWeight: 'bold' }}>🕘 Recent Searches: </span>
-    {searchHistory.map((term, idx) => (
-      <button
-        key={idx}
-        style={styles.recentSearch}
-        onClick={() => {
-          setSearchTerm(term);
-          dispatch(setSubreddit(term));
-        }}
-      >
-        {term}
-      </button>
-    ))}
-</div>
-  <div style={{margin:'12px 0'}}>
-      <label htmlFor="sort-select"
-      style={{marginRight:'8px'}}>Sort by:</label>
-      <select
-      id='sort-select'
-      value={sort}
-      onChange={(e) => dispatch(setSort(e.target.value))}
-      style={styles.sortButton}>
-      <option value='hot'>🔥 Hot</option>
-      <option value='new'>🆕 New</option>
-      <option value='top'>🏆 Top</option>  
-      <option value='rising'>📈 Rising</option>
-    </select>
-  </div>
-
+          <div
+          style={styles.searchBoxes}
+          >
+      <span style={{ fontWeight: 'bold' }}>🕘 Recent Searches: </span>
+        {searchHistory.map((term, idx) => (
+          <button
+            key={idx}
+            style={styles.recentSearch}
+            onClick={() => {
+              setSearchTerm(term);
+              dispatch(setSubreddit(term));
+            }}
+          >
+            {term}
+          </button>
+        ))}
+    </div>
+      <div style={{margin:'12px 0'}}>
+          <label htmlFor="sort-select"
+          style={{marginRight:'8px'}}>Sort by:</label>
+          <select
+          id='sort-select'
+          value={sort}
+          onChange={(e) => dispatch(setSort(e.target.value))}
+          style={styles.sortButton}>
+          <option value='hot'>🔥 Hot</option>
+          <option value='new'>🆕 New</option>
+          <option value='top'>🏆 Top</option>  
+          <option value='rising'>📈 Rising</option>
+        </select>
+      </div>
+      
       {loading ? (
         <p>🔄 Loading posts...</p>
       ) : error ? (
@@ -93,21 +104,38 @@ function App() {
       ) : posts.length === 0 ?(
         <p>⚠️ No posts found.</p>
       ) : (
-        
         <ul>
-          {posts.map((post) => (
-           <PostItem key={post.id} post={post} onClick={()=>setSelectedPost(post)} />
-          ))}
+        {posts.map((post) => (
+          <PostItem 
+          key={post.id} 
+          post={post} 
+          onClick={()=>
+            navigate(`/post/${post.id}`, { state:{background: location,post}})
+          } 
+         />
+        ))}
         </ul>
       )}
-
-      {/*Modal display*/}
-    {selectedPost && (
-      <PostModal post={selectedPost} onClose={() => setSelectedPost(null)} />
-    )}
-      
-     </div>    
+      </div>
+        }
+      />
+    </Routes>
+    {/*Modal Route*/}
+    <Routes>
+      <Route
+        path="/post/postId"
+        element={
+          <PostModal
+          post={location.state?.post}
+          onClose={() => navigate(-1)}
+          />
+        }
+      />
+    </Routes>  
+    </>
   );
 }
+
+    
 
 export default App;

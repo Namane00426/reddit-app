@@ -3,6 +3,7 @@ import './PostModal.css';
 import defaultThumbnail from './assets/default-thumbnail.s.png'
 
 function PostModal({post, onClose}) {
+  console.log('Modal received post:', post);
   if(!post) return null;
 
   const isValidThumbnail =

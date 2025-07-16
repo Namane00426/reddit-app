@@ -15,7 +15,7 @@ export const fetchPosts = createAsyncThunk(
      }
     return data.data.children.map(child => child.data);
   } catch(error){
-    return thunkAPI.rejectWithValue(error.message);
+     return thunkAPI.rejectWithValue('Failed to fetch posts.');
   }
 }
 );

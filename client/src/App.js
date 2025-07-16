@@ -25,7 +25,6 @@ function App() {
   
 
   useEffect(() => {
-    console.log('Fetching:', subreddit, sort);
     dispatch(fetchPosts({subreddit,sort}));
   }, [dispatch, subreddit, sort]);
 
@@ -56,7 +55,7 @@ function App() {
         path="/"
         element={
               <div>
-          <h1>/r/ Post list of: {subreddit}</h1>
+          <h1>/r/ Post list of: {subreddit} in Reddit</h1>
 
           <input
             value={searchTerm}

@@ -25,7 +25,7 @@ function PostItem({post}) {
       {isValidThumbnail && (
       <img
       src={post.thumbnail}
-      alt=''
+      alt={`Thumbnail for ${post.title}`}
       className={styles.thumbnail}/>
   )}
     <div className={styles.textContent}>

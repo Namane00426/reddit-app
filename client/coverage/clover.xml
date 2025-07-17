@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1752756372648" clover="3.2.0">
+  <project timestamp="1752756372648" name="All files">
+    <metrics statements="21" coveredstatements="21" conditionals="9" coveredconditionals="7" methods="8" coveredmethods="8" elements="38" coveredelements="36" complexity="0" loc="21" ncloc="21" packages="1" files="1" classes="1"/>
+    <file name="postsSlice.js" path="C:\Users\nanas\vagrant\ubuntu64_18\workspace\workspace_codecademy\Projekt2025\Reddit app\reddit-client-app\client\src\features\posts\postsSlice.js">
+      <metrics statements="21" coveredstatements="21" conditionals="9" coveredconditionals="7" methods="8" coveredmethods="8"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="6" count="4" type="stmt"/>
+      <line num="7" count="4" type="stmt"/>
+      <line num="9" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="12" count="2" type="stmt"/>
+      <line num="13" count="2" type="cond" truecount="4" falsecount="0"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="18" count="3" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="34" count="2" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="41" count="1" type="stmt"/>
+      <line num="43" count="4" type="stmt"/>
+      <line num="44" count="4" type="stmt"/>
+      <line num="47" count="1" type="stmt"/>
+      <line num="48" count="1" type="stmt"/>
+      <line num="51" count="3" type="stmt"/>
+      <line num="52" count="3" type="cond" truecount="1" falsecount="2"/>
+      <line num="57" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

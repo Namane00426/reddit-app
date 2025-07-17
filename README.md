@@ -6,7 +6,7 @@ A web application for browsing posts from various Reddit subreddits.
 
 ## 📐 Wireframes
 
-*Insert wireframe images later.*
+_Insert wireframe images later._
 
 ---
 
@@ -32,12 +32,27 @@ A web application for browsing posts from various Reddit subreddits.
 - ⚠️ Show an error message if the subreddit does not exist or has no posts
 - 🌐 Clickable links to open Reddit posts in a new tab
 - 📱 Responsive design for both desktop and mobile devices (planned)
+
 ---
 
-## 🧪 Testing (Planned)
+## 🧪 Testing
 
-- [ ] Unit testing with Jest & RTL
-- [ ] End-to-end testing with Cypress or Playwright
+This project uses Jest and React Testing Library for unit testing.
+
+- [ ] Tests are located alongside source files (e.g., postsSlice.test.js).
+- To run tests: npm test
+- To check test coverage: npm test -- --coverage
+
+🔍What’s Covered
+
+- [ ] Redux slice logic (postsSlice.js)
+  - Async thunk fetchPosts tested for success and failure cases
+  - Reducers setSubreddit, setSort tested
+- [ ] Component rendering and interaction (PostItem.js, PostModal.js)
+
+🚫 Enzyme Note
+Enzyme was considered but not used due to incompatibility with React 19.
+All tests were written using modern tools like React Testing Library instead.
 
 ---
 
@@ -62,6 +77,7 @@ The app will be deployed to a public URL
 ## 📱 Responsive Design
 
 The application is designed to work on:
+
 - Desktop
 - Tablet
 - Mobile devices

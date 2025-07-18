@@ -1,5 +1,4 @@
 import React from  'react';
-import styles from './PostItem.module.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 function PostItem({post}) {
@@ -19,26 +18,27 @@ function PostItem({post}) {
   };
 
   return (
+    
     <li 
       onClick={handleClick}
-      className={styles.postItem} >
+       className="bg-base text-text rounded-xl shadow-md p-4 mb-4 hover:bg-accent2 transition duration-200 cursor-pointer">
       {isValidThumbnail && (
       <img
       src={post.thumbnail}
       alt={`Thumbnail for ${post.title}`}
-      className={styles.thumbnail}/>
+      className="w-full h-48 object-cover rounded-lg mb-2"/>
   )}
-    <div className={styles.textContent}>
+    <div className="flex flex-col space-y-1">
       <a
       href={`https://www.reddit.com${post.permalink}`}
       target="_blank"
       rel='noopener noreferrer'
-      className={styles.linkTitle}
+      className="text-title font-semibold hover:underline"
       onClick={(e) => e.stopPropagation}
       >
         {post.title}
       </a>
-      <div className={styles.meta}>
+      <div className="text-sm text-sub mt-1">
         🧑 by {post.author} | 👍 {post.ups} upvotes
       </div>
       </div>

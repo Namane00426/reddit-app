@@ -54,9 +54,8 @@ function App() {
       <Route
         path="/"
         element={
-              <div>
+              <div >
           <h1>/r/ Post list of: {subreddit} in Reddit</h1>
-
           <input
             value={searchTerm}
             placeholder="Input Subreddit (ex. javascript)"

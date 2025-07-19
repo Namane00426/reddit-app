@@ -117,7 +117,7 @@ export default function MainLayout(){
       {loading ? (
         <p>🔄 Loading posts...</p>
       ) : error ? (
-        <p className='text-red-500'data-testid="error-message">{error}</p>
+        <p className='text-red-500' data-testid="error-message">{error}</p>
       ) : posts.length === 0 ?(
         <p>⚠️ No posts found.</p>
       ) : (

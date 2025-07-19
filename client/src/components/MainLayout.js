@@ -58,10 +58,12 @@ export default function MainLayout(){
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleKeyDown}
             className="border border-gray-300 rounded px-3 py-2 w-60"
+             data-testid="search-input"
           />
           <button 
           onClick={handleSearch}
-          className='bg-accent2 text-white px-4 py-2 rounded hover:bg-accent1'>Search</button>
+          className='bg-accent2 text-white px-4 py-2 rounded hover:bg-accent1'
+          data-testid='search-button'>Search</button>
           </div>    
         {searchHistory.length > 0 && (
           <div className='mb-4 text-sm'>
@@ -91,12 +93,14 @@ export default function MainLayout(){
           id='sort-select'
           value={sort}
           onChange={(e) => dispatch(setSort(e.target.value))}
-          className='border border-gray-300 rounded-md px-2 py-1'>
+          className='border border-gray-300 rounded-md px-2 py-1'
+          data-testid="sort-button">
           <option value='hot'>🔥 Hot</option>
           <option value='new'>🆕 New</option>
           <option value='top'>🏆 Top</option>  
           <option value='rising'>📈 Rising</option>
         </select>
+
       <div className='flex justify-end mb-4 space-x-2'>
         <button className={`px-3 py-1 rounded ${isGrid ? 'bg-accent2 text-white' : 'bg-sub text-text'}`}
         onClick={()=> setIsGrid(true)}>
@@ -113,7 +117,7 @@ export default function MainLayout(){
       {loading ? (
         <p>🔄 Loading posts...</p>
       ) : error ? (
-        <p className='text-red-500'>{error}</p>
+        <p className='text-red-500'data-testid="error-message">{error}</p>
       ) : posts.length === 0 ?(
         <p>⚠️ No posts found.</p>
       ) : (

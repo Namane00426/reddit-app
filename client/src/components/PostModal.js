@@ -16,6 +16,7 @@ function PostModal({post, onClose}) {
     <div className='modal-backdrop' onClick={onClose}>
       <div
         className='modal-content'
+        data-testid="post-modal"
         onClick={(e) => e.stopPropagation()}
       >
         {/*close button*/}

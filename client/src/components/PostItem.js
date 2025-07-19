@@ -1,5 +1,6 @@
 import React from  'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { formatDistanceToNow } from 'date-fns';
 
 function PostItem({post, isGrid}) {
   const navigate = useNavigate();
@@ -19,7 +20,8 @@ function PostItem({post, isGrid}) {
 
   return (
     
-    <li 
+    <li  data-testid="post-card" 
+    data-time={new Date(post.created_utc * 1000).toISOString()} 
       onClick={handleClick}
        className={`bg-base text-text rounded-xl shadow-md p-4 mb-4 hover:bg-accent2 transition duration-200 cursor-pointer ${isGrid ? " ": 'flex gap-4 items-start'}`}>
       {isValidThumbnail && (
@@ -38,8 +40,12 @@ function PostItem({post, isGrid}) {
       >
         {post.title}
       </a>
-      <div className="text-sm text-sub mt-1">
-        🧑 by {post.author} | 👍 {post.ups} upvotes
+      <div className="text-sm text-sub mt-1" data-testid="post-date">
+        🧑 by {post.author} | 👍 {post.ups} upvotes | {' '}
+  {formatDistanceToNow(new Date(post.created_utc * 1000), { addSuffix: true })}
+  <time data-testid="post-date" date-time={post.date}>
+  {formatDistanceToNow(new Date(post.created_utc * 1000), { addSuffix: true })}
+</time>
       </div>
       </div>
     </li>

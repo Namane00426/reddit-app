@@ -1,21 +1,15 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import {fetchPostsFromApi} from '../../api'
 
 export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
   async({subreddit, sort}, thunkAPI) => {
     try{
-       const response = await fetch(`http://localhost:4000/api/posts/${subreddit}?sort=${sort}`);
+       const posts = await fetchPostsFromApi(subreddit, sort);
+       return posts;
        
-       if(!response.ok){
-        throw new Error (`Subreddit "${subreddit}" not found`);
-       }
-     const data = await response.json();
-     if(!data?.data?.children || data.data.children.length === 0){
-      throw new Error(`No posts found for subreddit "${subreddit}"`);
-     }
-    return data.data.children.map(child => child.data);
   } catch(error){
-     return thunkAPI.rejectWithValue('Failed to fetch posts.');
+     return thunkAPI.rejectWithValue(error.message || 'Failed to fetch posts.');
   }
 }
 );

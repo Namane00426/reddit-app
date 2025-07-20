@@ -43,7 +43,7 @@ describe('fetchPosts thunk', () => {
     expect(state.error).toBe(null);
   }
   
-),
+);
 
 test('setSubreddit updates state', () => {
   const initialState = {  

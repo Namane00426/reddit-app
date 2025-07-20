@@ -1,3 +1,4 @@
+//server/index.js
 const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
@@ -7,6 +8,11 @@ const app = express();
 app.use(cors());
 
 const USER_AGENT = 'RedditClientApp/0.1 by OstrichSea5657';
+
+app.get('/', (req, res) => {
+  res.send('🟢 Reddit API server is running.');
+});
+
 
 app.get('/api/posts/:subreddit', async (req, res) => {
   const { subreddit } = req.params;

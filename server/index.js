@@ -1,3 +1,4 @@
+const fetch = require('node-fetch');
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
@@ -57,7 +58,20 @@ app.get('/api/posts/:subreddit', async (req, res) => {
       }
     );
 
-    res.json(response.data);
+       const accessToken = tokenResponse.data.access_token;
+
+    // fetch posts by token
+    const postsResponse = await axios.get(
+      `https://oauth.reddit.com/r/${subreddit}/${sort}`,
+      {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+          'User-Agent': USER_AGENT,
+        },
+      }
+    );
+
+    res.json(postsResponse.data);
   }catch (error) {
     console.error('Error fetching posts', error.message);
     res.status(500).json({error: 'Failed to fetch posts from Reddit API'});

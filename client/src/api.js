@@ -1,5 +1,8 @@
+// src/api/index.js
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 export const fetchPostsFromApi = async (subreddit, sort) => {
-  const response = await fetch(`http://localhost:4000/api/posts/${subreddit}?sort=${sort}`);
+  const response = await fetch(`${BASE_URL}/api/posts/${subreddit}?sort=${sort}`);
   
   if (!response.ok) {
     throw new Error(`Subreddit "${subreddit}" not found`);

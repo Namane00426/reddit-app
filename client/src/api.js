@@ -1,8 +1,10 @@
 // client/src/api.js
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const BASE_URL = process.env.
+REACT_APP_API_BASE_URL;
+console.log("BASE_URL:", BASE_URL);
 
 export const fetchPostsFromApi = async (subreddit, sort) => {
-  console.log("BASE_URL:", BASE_URL);
+  
   console.log("Fetching subreddit:", subreddit, "with sort:", sort);
 
   const response = await fetch(`${BASE_URL}/api/posts/${subreddit}?sort=${sort}`);

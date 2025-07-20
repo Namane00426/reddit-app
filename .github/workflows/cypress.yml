@@ -21,10 +21,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: client
 
       - name: Start the dev server and run Cypress
         uses: cypress-io/github-action@v6
         with:
+          working-directory: client
           start: npm run start
           wait-on: "http://localhost:3000"
           wait-on-timeout: 60

@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
+
 const app = express();
 app.use(cors());
 
@@ -57,4 +58,14 @@ app.get('/api/posts/:subreddit', async (req, res) => {
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Proxy server running at http://localhost:${PORT}`);
+});
+
+const path = require('path');
+
+// React のビルド済みファイルを配信
+app.use(express.static(path.join(__dirname, '../client/build')));
+
+// フロントエンドのすべてのルーティングを React に委譲
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });

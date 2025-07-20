@@ -2,8 +2,10 @@
 const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 export const fetchPostsFromApi = async (subreddit, sort) => {
+ console.log('BASE_URL:', BASE_URL);
   const response = await fetch(`${BASE_URL}/api/posts/${subreddit}?sort=${sort}`);
-  
+
+   
   if (!response.ok) {
     throw new Error(`Subreddit "${subreddit}" not found`);
   }

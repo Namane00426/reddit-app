@@ -48,6 +48,7 @@ describe('Reddit App E2E', () => {
       }
     });
       const sorted = [...dateList].sort((a,b) => b - a);
+      console.log(dateList);
       expect(dateList).to.deep.equal(sorted);
     
     });

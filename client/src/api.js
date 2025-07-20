@@ -1,5 +1,5 @@
 // src/api/index.js
-const BASE_URL = https://reddit-app-9jal.onrender.com/api/posts;
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 export const fetchPostsFromApi = async (subreddit, sort) => {
  console.log('BASE_URL:', BASE_URL);

@@ -1,3 +1,5 @@
+/*test - npm run test:e2e*/
+
 import React from 'react';
 /* eslint-disable no-undef */
 <reference types="cypress" />

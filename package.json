@@ -16,6 +16,10 @@
     "redux-mock-store": "^1.5.5",
     "tailwindcss": "^4.1.11"
   },
+    "scripts": {
+    "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build"
+  },
   "jest": {
     "setupFilesAfterEnv": [
       "<rootDir>/jest.setup.js"

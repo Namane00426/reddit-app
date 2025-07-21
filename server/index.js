@@ -3,6 +3,7 @@ const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+const path = require('path');
 
 
 const app = express();
@@ -54,6 +55,7 @@ app.get('/api/posts/:subreddit', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch posts from Reddit API' });
   }
 });
+
 
 // React のビルド済みファイルを配信
 app.use(express.static(path.join(__dirname, '../client/build')));

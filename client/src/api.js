@@ -15,9 +15,9 @@ export const fetchPostsFromApi = async (subreddit, sort) => {
 
   const data = await response.json();
 
-  if (!data?.data?.children || data.data.children.length === 0) {
+  if (!Array.isArray(data) || data.length === 0) {
     throw new Error(`No posts found for subreddit "${subreddit}"`);
   }
 
-  return data.data.children.map(child => child.data);
+  return data;
 };

@@ -70,5 +70,4 @@ app.listen(PORT, () => {
   console.log(`Proxy server running at http://localhost:${PORT}`);
 });
 
-const path = require('path');
 

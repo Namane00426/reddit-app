@@ -13,7 +13,7 @@ A web application for browsing posts from various Reddit subreddits.
 
 ### 📱 Mobile
 
-<p align="left">
+<p align="left" style="background-color: lightgray; ">
   <img src="./client/docs/screenshots/mobile.png" alt="Home Screenshot" width="300" style="border:1px solid #f7f7f7; border-radius:8px;" />
 </p>
 

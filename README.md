@@ -7,14 +7,14 @@ A web application for browsing posts from various Reddit subreddits.
 ## 📐 Screenshots
 
 ### 🖥️ Desktop
-<p align="center">
-  <img src="./client/docs/screenshots/home.png" alt="Home Screenshot" width="600" style="border:1px solid #f7f7f7; border-radius:8px;" />
+<p align="left">
+  <img src="./client/docs/screenshots/home.png" alt="Home Screenshot" width="400" style="border:1px solid #f7f7f7; border-radius:8px;" />
 </p>
 
 ### 📱 Mobile
 
-<p align="center">
-  <img src="./client/docs/screenshots/mobile.png" alt="Home Screenshot" width="600" style="border:1px solid #f7f7f7; border-radius:8px;" />
+<p align="left">
+  <img src="./client/docs/screenshots/mobile.png" alt="Home Screenshot" width="300" style="border:1px solid #f7f7f7; border-radius:8px;" />
 </p>
 
 ## 🛠 Technologies Used

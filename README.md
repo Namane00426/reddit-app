@@ -91,7 +91,7 @@ The application is designed to work on:
 ## 📦 Project Management
 
 Task tracking and planning are managed via  
-[GitHub Projects]
+[GitHub Projects]　(https://github.com/users/Namane00426/projects/3)
 
 ---
 

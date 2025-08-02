@@ -4,34 +4,39 @@ A web application for browsing posts from various Reddit subreddits.
 
 ---
 
-## 📐 Wireframes
+## 📐 Screenshots
 
-_Insert wireframe images later._
+### 🖥️ Desktop
 
+![Home View](./reddit-client-app/client/docs/screenshots/home.png)
+
+### 📱 Mobile
+
+![Mobile View](./reddit-client-app/client/docs/screenshots/mobile.png)
 ---
 
 ## 🛠 Technologies Used
 
 - React
-- Redux (planned)
+- Redux (for state management)
 - JavaScript (ES6+)
-- CSS (or Tailwind CSS if used)
-- Reddit API
-- Git & GitHub
-- GitHub Projects (for task planning)
-- Jest / React Testing Library (for unit tests)
-- Cypress or Playwright (for E2E tests – planned)
-
+- Tailwind CSS (for styling)
+- Reddit API (data source)
+- Git & GitHub (version control)
+- GitHub Projects (task planning)
+- Jest & React Testing Library (unit testing)
+- Cypress (end-to-end testing)
+- Render (deployment)
 ---
 
 ## Features
 
 - 🔍 Search and display posts from any subreddit
-- ⌨️ Input field for subreddit name with Enter key support
-- ⏳ Display a loading message while fetching posts
-- ⚠️ Show an error message if the subreddit does not exist or has no posts
+- ⌨️ Enter subreddit name via input field with Enter key support
+- ⏳ Show a loading indicator while fetching posts
+- ⚠️ Display an error message for invalid or empty subreddits
 - 🌐 Clickable links to open Reddit posts in a new tab
-- 📱 Responsive design for both desktop and mobile devices (planned)
+- 📱 Fully responsive design for desktop and mobile devices
 
 ---
 

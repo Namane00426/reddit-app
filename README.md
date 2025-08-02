@@ -8,11 +8,11 @@ A web application for browsing posts from various Reddit subreddits.
 
 ### 🖥️ Desktop
 
-![Home View](./reddit-client-app/client/docs/screenshots/home.png)
+![Home View](./client/docs/screenshots/home.png)
 
 ### 📱 Mobile
 
-![Mobile View](./reddit-client-app/client/docs/screenshots/mobile.png)
+![Mobile View](./client/docs/screenshots/mobile.png)
 ---
 
 ## 🛠 Technologies Used

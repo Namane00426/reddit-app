@@ -39,7 +39,9 @@ A web application for browsing posts from various Reddit subreddits.
 - ⚠️ Display an error message for invalid or empty subreddits
 - 🌐 Clickable links to open Reddit posts in a new tab
 - 📱 Fully responsive design for desktop and mobile devices
-
+- 🚀 Achieves 90+ Lighthouse performance score
+- 🖼️ Post detail view with modal style
+- 🎚️ Filter posts by categories (e.g., hot, new, top)
 ---
 
 ## 🧪 Testing
@@ -65,19 +67,15 @@ All tests were written using modern tools like React Testing Library instead.
 
 ## 🚧 Future Work
 
-- Integrate Redux for better state management
-- Add filtering by categories
-- Implement post detail view (modal or new route)
 - Improve animations and UI transitions
-- Optimize performance and accessibility (90+ Lighthouse score)
+- Add Progressive Web App (PWA)
 
 ---
 
 ## 🌍 Deployment
 
-The app will be deployed to a public URL  
-**(e.g., Netlify, Vercel, GitHub Pages)**  
-🔗 [Deployed App Link](https://your-app-url.com)
+This app is deployed via **Render** at the following public URL:
+🔗 [Live App](https://reddit-app-9jal.onrender.com/))
 
 ---
 
@@ -86,7 +84,6 @@ The app will be deployed to a public URL
 The application is designed to work on:
 
 - Desktop
-- Tablet
 - Mobile devices
 
 ---
@@ -94,7 +91,7 @@ The application is designed to work on:
 ## 📦 Project Management
 
 Task tracking and planning are managed via  
-[GitHub Projects](https://github.com/users/Namane00426/projects/2)
+[GitHub Projects]
 
 ---
 
